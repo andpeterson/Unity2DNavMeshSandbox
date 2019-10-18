@@ -5,13 +5,8 @@ using UnityEngine.AI;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private Vector2 destination;
-
-    public float moveSpeed = 5f;
     public Animator animator;
     private NavMeshAgent agent;
-    public Vector2 desitination;
-    public Vector3 velocity;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
             desitination.z = 0;
             agent.SetDestination(desitination);
         }
-        velocity = agent.velocity;
+        Vector3 velocity = agent.velocity;
         animator.SetFloat("X", velocity.x);
         animator.SetFloat("Y", velocity.y);
         animator.SetFloat("Speed", velocity.magnitude);
